@@ -1,0 +1,60 @@
+---
+title: 'Final Project 2: R Markdown'
+author: "Hannah Lawinger"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# Introduction
+
+The Carter Center recently supported an epidemiological monitoring survey (EMS) for lymphatic filariasis in Haiti in order to ascertain whether the commune can halt mass drug administration and move towards a Transmission Assessment Survey (TAS-1). The EMS dataset includes household characteristics and morbidity assessments, participant demographics, and filarial test strip (FTS) results. The outcome of interest is the final FTS result for each participant. 
+
+## Analysis Objectives
+* Describe household characteristics and morbidity by seksyonkominal
+* Tabulate final fts results by seksyonkominal 
+* Describe participant demographics if final fts result = positive
+
+
+```{r, set-chunk-opts, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, here-i-am, include = FALSE}
+here::i_am("Final_Project_2.Rmd")
+```
+
+```{r, load-data, include = FALSE}
+
+data <- read.csv(
+        file = here::here("Raw_data/Limonade_EMS_all.csv")
+)
+```
+
+### Table 1.
+The `r nrow(data)` final FTS results from the Haiti EMS are displayed in the table below by seksyonkominal.
+
+```{r, table1}
+
+table_one <- readRDS(
+  file = here::here("Output/table_one.rds")
+)
+table_one
+```
+
+### Figure 1.
+Below we report a box plot of MDA frequency (# times participants took MDA for lymphatic filariasis) as a function of age.
+
+```{r, plot-data}
+#| echo = FALSE,
+#| message = FALSE,
+#| fig.align = "center",
+#| out.width = "600px"
+
+knitr::include_graphics(
+  here::here("Output/figure1.png")
+)
+```
+
+
