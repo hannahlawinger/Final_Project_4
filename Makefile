@@ -11,3 +11,7 @@ Output/figure1.png: Code/2_make_figure1.R Raw_data/Limonade_EMS_all.csv
 .PHONY: clean
 clean: 
 	rm -f Output/*.rds && rm -f Output/*.png && rm -f *.html
+	
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"

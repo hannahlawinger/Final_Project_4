@@ -27,6 +27,8 @@ To generate the final HTML report, run `make` from the project directory in a te
 
 The `Makefile` executes the report-generation workflow using `Final_Project_2.Rmd` and the required output files.
 
+The `Makefile` utilizes install which restores the package environment used for project creation.
+
 ## Project Outputs
 
 The project generates the following files in the `Output/` directory:
